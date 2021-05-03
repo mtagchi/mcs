@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    env_file:
+      - .env
+    environment:
+      TZ: Asia/Tokyo
+  node:
+    build:
+      context: ./app
+    stdin_open: true
+    restart: always
+    volumes:
+      - ./:/usr/src
+    working_dir:
+      /usr/src/app
+    # command: 'node index.js'
+    ports:
+      - 3000:3000
+    environment:
+      TZ: 'Asia/Tokyo'
