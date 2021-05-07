@@ -18,7 +18,7 @@ services:
       - ./:/usr/src
     working_dir:
       /usr/src/app
-    # command: 'node index.js'
+    command: 'npm run dev'
     ports:
       - 3000:3000
     environment:
